@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <!--通过input上传文件，在html页面中预览-->
+    <input type="file" name="file">
+    <button>点我查看内容</button>
+    <br>
+    <img src="" alt="">
+    <p></p>
+    <script>
+        // 功能: 选择图片之后，在浏览器中预览图片 
+        // 步骤:
+        // 1.获取元素 
+        var input = document.querySelector('input');
+        var button = document.querySelector('button');
+        var img = document.querySelector('img');
+        // 2.给button添加点击事件
+        button.onclick = function() {
+            // 3.获取选中文件
+            // console.dir(input);
+            var file = input.files[0];
+            // 4.实例化FileReader对象
+            var filereader = new FileReader();
+            // 5.调用 FileReader对象读取方法 开始读图片内容 readAsDataURL();
+            // filereader.readAsDataURL(file);
+            filereader.readAsText(file);
+            // 6.等待文件读取完成 onload
+            filereader.onload = function() {
+                // 7.获取读取结果result
+                // console.log(filereader.result);
+                // img.src = filereader.result;
+                document.querySelector('p').innerHTML = filereader.result;
+            }
+
+        }
+
+        input.onchange = function() {
+            var file = this.files[0];
+            var filereader = new FileReader();
+            //按何种方式读取文件
+            filereader.readAsDataURL(file);
+            //在文件读取完成后执行
+            filereader.onload = function() {
+                //filereader.result指读取结果
+                img.src = filereader.result
+            }
+
+        }
+    </script>
+</body>
+
+</html>

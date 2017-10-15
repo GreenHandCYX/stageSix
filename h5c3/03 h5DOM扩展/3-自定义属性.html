@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>自定义属性</title>
+    <style>
+        a[data-cont="global"] {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="javascript:;" data-cont="local" class="active" data-xiao-name="zhangsan" data-index="2">国内新闻</a>
+        <a href="javascript:;" data-cont="global">国际新闻</a>
+        <a href="javascript:;" data-cont="sports">体育新闻</a>
+        <a href="javascript:;" data-cont="funny">娱乐新闻</a>
+    </nav>
+</body>
+
+</html>

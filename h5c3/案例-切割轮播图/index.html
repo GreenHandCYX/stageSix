@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
+    <style>
+        html,
+        body,
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        ul {
+            list-style: none
+        }
+        
+        .view {
+            width: 560px;
+            height: 300px;
+            margin: 100px auto;
+            position: relative
+        }
+        
+        ul {
+            width: 100%;
+            height: 100%;
+        }
+        
+        li {
+            width: 112px;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(0deg);
+            float: left;
+            transition: all 1s;
+        }
+        
+        span {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        li span:nth-child(1) {
+            background-image: url("./images/1.jpg");
+            background-repeat: no-repeat;
+            transform: translateZ(150px)
+        }
+        
+        li span:nth-child(2) {
+            background-image: url("./images/2.jpg");
+            background-repeat: no-repeat;
+            transform: rotateX(90deg) translateZ(150px)
+        }
+        
+        li span:nth-child(3) {
+            background-image: url("./images/3.jpg");
+            background-repeat: no-repeat;
+            transform: rotateX(180deg) translateZ(150px)
+        }
+        
+        li span:nth-child(4) {
+            background-image: url("./images/4.jpg");
+            background-repeat: no-repeat;
+            transform: rotateX(270deg) translateZ(150px)
+        }
+        
+        li:nth-child(2) span {
+            background-position: -112px 0
+        }
+        
+        li:nth-child(3) span {
+            background-position: -224px 0
+        }
+        
+        li:nth-child(4) span {
+            background-position: -336px 0
+        }
+        
+        li:nth-child(5) span {
+            background-position: -448px 0
+        }
+        /* 设置每个li的延时 */
+        
+        li:nth-child(2) {
+            transition-delay: .25s
+        }
+        
+        li:nth-child(3) {
+            transition-delay: .5s
+        }
+        
+        li:nth-child(4) {
+            transition-delay: .75s
+        }
+        
+        li:nth-child(5) {
+            transition-delay: 1s
+        }
+        
+        .prev,
+        .next {
+            position: absolute;
+            top: 0;
+            line-height: 300px;
+            color: #fff;
+            font-size: 40px;
+            opacity: 0;
+            transition: all 1s;
+        }
+        
+        .next {
+            right: 0;
+        }
+        
+        .view:hover .prev,
+        .view:hover .next {
+            opacity: 1
+        }
+    </style>
+</head>
+
+<body>
+    <div class="view">
+        <ul>
+            <li>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+            <li>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+            <li>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+            <li>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+            <li>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+        </ul>
+        <a href="javascript:;" class="prev fa fa-chevron-left"></a>
+        <a href="javascript:;" class="next fa fa-chevron-right"></a>
+    </div>
+    <script>
+        var prev = document.querySelector(".prev");
+        var next = document.querySelector(".next");
+        var li = document.querySelectorAll("li");
+        //表示点击次数
+        var num = 0;
+        //定义bool监听延时
+        var isTransitionEnd = false;
+        prev.onclick = function() {
+            //当前一面未切换完毕则不进行下一面的切换
+            if (isTransitionEnd) return;
+            isTransitionEnd = true;
+
+            num++; //顺时针
+            //让所有的li都变换
+            for (var i = 0; i < li.length; i++) {
+                li[i].style.transform = "rotateX(" + num * 90 + "deg)";
+            }
+
+        }
+        next.onclick = function() {
+            //当前一面未切换完毕则不进行下一面的切换
+            if (isTransitionEnd) return;
+
+            num--;
+            isTransitionEnd = true;
+            for (var i = 0; i < li.length; i++) {
+                li[i].style.transform = "rotateX(" + num * 90 + "deg)";
+            }
+        }
+
+        //解决多次急点造成的bug
+        //方法:只要监听五个li全部过渡完成,那么下一次点击才生效
+        //即最后一个li过渡是否结束即可(用webkitTransitionEnd方法)
+        var lastLi = document.querySelector('li:last-child');
+        console.log(lastLi);
+        lastLi.addEventListener('webkitTransitionEnd', function() {
+            isTransitionEnd = false;
+        })
+    </script>
+</body>
+
+</html>

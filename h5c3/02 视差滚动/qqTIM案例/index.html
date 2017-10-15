@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>qqTim</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <main>
+        <section class="first">
+            <nav class="nav">
+                <div class="nav-left">
+                    <a class="logo" href="javascript:;">
+                        <img src="./image/topnav-logo.png" alt="">
+                    </a>
+
+                    <ul>
+                        <li class="active">
+                            <a href="javascript:;">首页</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">下载</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">动态</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-right">
+                    <a class="signup" href="javascript:;"></a>
+                    <div class="extra">
+                        <ul>
+                            <li><a href="javascript">QQ会员</a></li>
+                            <li><a href="javascript">QQ安全</a></li>
+                            <li><a href="javascript">登录</a></li>
+                        </ul>
+                        <a href="javascript:;">
+                              当前在线人数：<span>227,763,015</span>
+                          </a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- 网站的标题 -->
+            <div class="site-name"></div>
+            <!-- 立即下载 -->
+            <div class="download"></div>
+            <!-- 特点 -->
+            <div class="feature"></div>
+            <!-- 文档 -->
+            <div class="doc">
+                <img src="./image/doc.png" alt="">
+            </div>
+            <!-- imqq -->
+            <div class="imqq">
+                <h1>I'm qq</h1>
+            </div>
+        </section>
+
+        <!-- 第二屏 -->
+        <section class="second" data-stellar-background-ratio="0.3">
+        </section>
+
+        <!-- 第三屏 -->
+        <section class="third wrap">
+            <div class="third-left"></div>
+            <div class="third-right">
+                <div class="goutong"></div>
+                <p>
+                    无论何时何地，你都能自由享受QQ在各类终端
+                    <br> 上带来的高清通话，与好友一起想聊多久聊多久
+                </p>
+                <a class="more" href="JavaScript:;">了解更多&nbsp;></a>
+                <ul>
+                    <li>
+                        <a href="javascript:;">屏幕分享</a>
+                    </li>
+                    <li class="space"></li>
+                    <li>
+                        <a href="javascript:;">群组通话</a>
+                    </li>
+                    <li class="space"></li>
+                    <li>
+                        <a href="javascript:;">两人、多人通话</a>
+                    </li>
+
+
+                </ul>
+        </section>
+        <!-- 第四屏 -->
+        <section class="fourth" data-stellar-background-ratio="0.3"></section>
+        <!-- 第五屏 -->
+        <section class="fifth wrap">
+            <div class="fifth-left"></div>
+            <div class="fifth-right"></div>
+        </section>
+        <!-- 第六屏 -->
+        <section class="sixth" data-stellar-background-ratio="0.3"></section>
+        <!-- 第七屏 -->
+        <section class="seventh wrap">
+            <div class="seventh-left"></div>
+            <div class="seventh-right"></div>
+        </section>
+
+    </main>
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/jquery.stellar.min.js"></script>
+    <script>
+        //让背景图片也随滑轮滚动
+        //需要全局绑定
+        $.stellar({
+            horizontalScrolling: false,
+            responsive: true
+        })
+    </script>
+</body>
+
+</html>

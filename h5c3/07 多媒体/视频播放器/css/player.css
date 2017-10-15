@@ -1,0 +1,119 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.player {
+    position: relative;
+    width: 834px;
+    height: 470px;
+    margin: 50px auto;
+    box-shadow: 0 0 1px #000
+}
+
+.control {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 32px;
+    background: #ccc;
+    opacity: 0.6;
+    /* 视频全屏时显示自定义控制条的层级z-index必须大于2147483647 */
+    z-index: 9999999999
+}
+
+.play-button {
+    margin-left: 10px
+}
+
+.play-button i {
+    font-size: 24px;
+    line-height: 32px;
+    color: #000
+}
+
+.progress {
+    position: absolute;
+    top: 50%;
+    left: 50px;
+    margin-top: -7px;
+    width: 70%;
+    height: 14px;
+    box-shadow: 0 0 1px #000;
+    border-radius: 7px;
+    overflow: hidden
+}
+
+.progress .progress-bar {
+    width: 0%;
+    height: 100%;
+    background: #fff;
+}
+
+.time {
+    position: absolute;
+    right: 60px;
+    top: 0;
+    line-height: 32px;
+    font-size: 14px
+}
+
+.fullscreen {
+    position: absolute;
+    right: 14px;
+    top: 0;
+}
+
+.fullscreen i {
+    font-size: 20px;
+    line-height: 32px;
+    color: #000
+}
+
+
+/* 防止全屏显示时默认出现video默认的控制器 */
+
+video::-webkit-media-controls-enclosure {
+    /*禁用播放器控制栏的样式*/
+    display: none !important;
+}
+
+.zhezao {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2147483648;
+    display: none;
+}
+
+.zhezao h4 {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    color: #fff;
+}
+
+.zhezao img {
+    position: absolute;
+    width: 10%;
+    top: 50%;
+    left: 50%;
+    opacity: 0.8;
+    transform: translate(-50%, -50%);
+    display: none
+}

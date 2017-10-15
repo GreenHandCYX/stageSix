@@ -1,0 +1,67 @@
+html,
+body,
+h1,
+h2 {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)
+}
+
+html,
+body,
+main,
+.first,
+.third,
+.fifth {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+main {
+    text-align: center
+}
+
+.first {
+    background-image: url(image/fixed-1.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed
+}
+
+.second {
+    background: #460909;
+    color: #ccc
+}
+
+h2 {
+    padding: 25px;
+}
+
+.third {
+    background-image: url(image/fixed-2.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed
+}
+
+.fourth {
+    background: #11AC78;
+    color: rgba(0, 250, 104, 0.34)
+}
+
+.fifth {
+    background-image: url(image/fixed-3.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed
+}

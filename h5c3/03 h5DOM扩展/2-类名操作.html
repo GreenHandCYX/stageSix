@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>类名操作</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="javascript:;" class="domestic-news active" index="2">国内新闻</a>
+        <a href="javascript:;" id="international-news">国际新闻</a>
+        <a href="javascript:;" class="sports-news news">体育新闻</a>
+        <a href="javascript:;" class="entertainment-news">娱乐新闻</a>
+    </nav>
+    <script>
+        var domeNews = document.querySelector('.domestic-news');
+
+        // 给第一个a标签添加一个类名 
+        // domeNews.classList.add("country");
+
+        // 通过第一个a元素 删除自身带有的domestic-news
+        // domeNews.classList.remove("domestic-news");
+
+        // 切换类名(有则删除无则添加)
+        // domeNews.classList.toggle("active1");
+
+        // 判断元素类名包含   会返回布尔值  如果包含返回true 否则返回false
+        var flag = domeNews.classList.contains("active1");
+        console.log(flag); //true
+    </script>
+</body>
+
+</html>

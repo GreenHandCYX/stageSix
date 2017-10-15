@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <button class="red">红色</button>
+    <button class="pink">粉色</button>
+    <script>
+        var red = document.querySelector('.red');
+        var pink = document.querySelector(".pink");
+        red.addEventListener('click', function() {
+            document.body.style.backgroundColor = 'red';
+            window.localStorage.setItem('color', 'red');
+        })
+        pink.addEventListener('click', function() {
+                document.body.style.backgroundColor = 'blue';
+                window.localStorage.setItem('color', 'blue');
+            })
+            //在页面加载完成后调用本地存储中的数据
+        window.onload = function() {
+            document.body.style.backgroundColor = window.localStorage.getItem('color');
+        }
+    </script>
+</body>
+
+</html>

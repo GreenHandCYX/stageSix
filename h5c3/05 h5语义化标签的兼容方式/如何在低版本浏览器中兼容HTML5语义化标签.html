@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>兼容HTML5语义化标签的解决方案</title>
+  <style>
+    html,body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      width: 100%;
+      height: 80px;
+      background-color: greenyellow;
+    }
+
+    nav {
+      width: 100%;
+      height: 60px;
+      background-color: pink;
+    }
+
+    main {
+      display: block;
+      overflow: hidden;
+      width: 100%;
+      height: 500px;
+      
+    }
+
+    main article {
+      float: left;
+      width: 70%;
+      height: 100%;
+      background-color: hotpink;
+    }
+
+    main aside {
+      float: right;
+      width: 30%;
+      height: 100%;
+      background-color: lightpink;
+    }
+
+    footer {
+      width: 100%;
+      height: 60px;
+      background-color: gray;
+    }
+  </style>
+  <!-- 语义化标签做兼容: 有样式的语义化标签 不能做兼容,能做兼容的只有没有样式的语义化标签-->
+  <!--  兼容语义化标签 只需要去兼容ie8及其以下浏览器 -->
+
+  <!-- 1. 引入html5shiv.js 去做兼容性解决 只能放在head标签中-->
+  <!-- 2. 添加条件注释语句 emmet语法: cc:ie6 -->
+  <!-- 3. lt less than 小于 -->
+  <!--[if lte IE 8]>      
+     <script src="./html5shiv.js"></script>
+  <![endif]-->
+
+ 
+  <!-- <script>
+    // main 在html5中并没有, 但在html5.1中却有 
+    document.createElement('main');
+  </script> -->
+</head>
+<body>
+  <header></header>
+  <nav></nav>
+  <main>
+    <article></article>
+    <aside></aside>
+  </main>
+  <footer></footer>
+</body>
+</html>

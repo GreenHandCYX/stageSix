@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>地理定位---经度和维度</title>
+</head>
+
+<body>
+    <p></p>
+    <script>
+        //ie678不支持geolocation
+        // 1.判断浏览器是否支持地理定位
+        // 2.获取地理定位信息getCurrentPosition
+        // 3.获取地理位置其实获取的是经纬度
+        if (navigator.geolocation) {
+            // 如果支持的话就用 getCurrentPosition()来获取定位信息
+            // navigator.geolocation.getCurrentPosition(成功时的回调,失败时的回调)
+
+            navigator.geolocation.getCurrentPosition(function(position) {
+                    //所有定位信息都在position.coords中  
+                    console.log(1);
+                    console.log(position.coords);
+                }, function(error) {
+                    console.log(error);
+                }
+                // , 
+                // {
+                //     timeout: 1
+                // }
+            )
+        } else {
+            alert("您的浏览器不支持地理定位!!!");
+        }
+    </script>
+</body>
+
+</html>
