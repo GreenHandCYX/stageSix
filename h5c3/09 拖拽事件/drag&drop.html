@@ -47,47 +47,60 @@
         var oDrag = document.querySelector(".drag");
         var oTarget = document.querySelector(".target");
 
-        // 拖拽元素 
-        // 当鼠标按下开始拖拽的时候触发的事件 dragstart
-        oDrag.addEventListener('dragstart', function(ev) {
-            // console.log(this.id);
-            ev.dataTransfer.setData('id', this.id);
-            console.log('开始拖拽...');
-        })
+        // // 拖拽元素 
+        // // 当鼠标按下开始拖拽的时候触发的事件 dragstart
+        // oDrag.addEventListener('dragstart', function(ev) {
+        //     // console.log(this.id);
+        //     ev.dataTransfer.setData('id', this.id);
+        //     console.log('开始拖拽...');
+        // })
 
-        // 当鼠标拿着拖拽元素运动过程中不断触发的事件 drag 
-        oDrag.addEventListener('drag', function() {
-            // console.log('拖拽中...');
-        })
+        // // 当鼠标拿着拖拽元素运动过程中不断触发的事件 drag 
+        // oDrag.addEventListener('drag', function() {
+        //     console.log('拖拽中...');
+        // })
 
-        // 当松开鼠标之后 拖拽元素被松开 触发 dragend 
-        oDrag.addEventListener('dragend', function() {
-            console.log('拖拽结束!!!');
-        })
+        // // 当松开鼠标之后 拖拽元素被松开 触发 dragend 
+        // oDrag.addEventListener('dragend', function() {
+        //     console.log('拖拽结束!!!');
+        // })
 
 
-        // 目标元素
-        // 当拖拽元素进入目标元素会触发dragenter(检测的时鼠标)
-        oTarget.addEventListener('dragenter', function() {
-            console.log('拖拽进入目标元素');
-        })
+        // // 目标元素
+        // // 当拖拽元素进入目标元素会触发dragenter(检测的时鼠标)
+        // oTarget.addEventListener('dragenter', function() {
+        //     console.log('拖拽进入目标元素');
+        // })
 
-        // 当拖拽元素在目标元素上,会不停触发
-        oTarget.addEventListener('dragover', function(e) {
-            // 在dragover的时候需要阻止浏览器默认显示或打开图片及文件的的默认事件 
-            e.preventDefault();
-            console.log('拖拽元素在目标元素上');
-        })
+        // // 当拖拽元素在目标元素上,会不停触发
+        // oTarget.addEventListener('dragover', function(e) {
+        //     // 在dragover的时候需要阻止浏览器默认显示或打开图片及文件的的默认事件 
+        //     e.preventDefault();
+        //     console.log('拖拽元素在目标元素上');
+        // })
 
-        // 当拖拽元素被放在目标元素上的时候，会触发drop事件
-        oTarget.addEventListener('drop', function(ev) {
-            var id = ev.dataTransfer.getData('id');
-            // console.log(id);
-            this.appendChild(document.getElementById(id));
-            console.log('拖拽元素被放下！！！！！');
+        // // 当拖拽元素被放在目标元素上的时候，会触发drop事件
+        // oTarget.addEventListener('drop', function(ev) {
+        //     var id = ev.dataTransfer.getData('id');
+        //     // console.log(id);
+        //     this.appendChild(document.getElementById(id));
+        //     console.log('拖拽元素被放下！！！！！');
+        // })
+
+
+        oDrag.addEventListener('dragstart',function(e){
+            e.dataTransfer.setData('ss',this.id);
         })
 
         //
+        oTarget.addEventListener('dragover',function(e){
+            e.preventDefault();
+        })
+        oTarget.addEventListener('drop',function(e){
+            var id = e.dataTransfer.getData('ss');
+            console.log(id);
+            this.appendChild(document.getElementById(id));
+        })
     </script>
 </body>
 

@@ -43,17 +43,27 @@
 
         }
 
-        input.onchange = function() {
-            var file = this.files[0];
-            var filereader = new FileReader();
-            //按何种方式读取文件
-            filereader.readAsDataURL(file);
-            //在文件读取完成后执行
-            filereader.onload = function() {
-                //filereader.result指读取结果
-                img.src = filereader.result
-            }
+        // input.onchange = function() {
+        //     var file = this.files[0];
+        //     var filereader = new FileReader();
+        //     //按何种方式读取文件
+        //     filereader.readAsDataURL(file);
+        //     //在文件读取完成后执行
+        //     filereader.onload = function() {
+        //         //filereader.result指读取结果
+        //         img.src = filereader.result
+        //     }
 
+        // }
+
+
+        input.onchange = function(){
+            var data = this.files[0];
+            var filereader = new FileReader();
+            filereader.readAsText(data);
+            filereader.onload = function(){
+                document.querySelector('p').innerHTML = filereader.result;
+            }
         }
     </script>
 </body>
