@@ -56,12 +56,20 @@
 
         // }
 
-        input.onchange = function(){
+        // input.onchange = function(){
+        //     var data = this.files[0];
+        //     var filereader = new FileReader();
+        //     filereader.readAsText(data);
+        //     filereader.onload = function(){
+        //         document.querySelector('p').innerHTML = filereader.result;
+        //     }
+        // }
+        input.onchange=function(){
             var data = this.files[0];
-            var filereader = new FileReader();
-            filereader.readAsText(data);
-            filereader.onload = function(){
-                document.querySelector('p').innerHTML = filereader.result;
+            var filereader = new FileReader;
+            filereader.readAsDataURL(data);
+            filereader.onload = function() {
+                img.src = filereader.result
             }
         }
     </script>
